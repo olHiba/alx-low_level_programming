@@ -1,18 +1,12 @@
 #include <stdio.h>
-#include "main.h"
 
-int main(void)
+int get_endianness(void)
 {
-	int n;
+    unsigned int num = 1;
+    char *endianCheck = (char *)&num;
 
-	n = get_endianness();
-	if (n != 0)
-	{
-		printf("Little Endian\n");
-	}
-	else
-	{
-		printf("Big Endian\n");
-	}
-	return (0);
+    /* If the first byte (lowest address) contains the least significant byte, it's little endian.
+     * Otherwise, it's big endian. */
+    return (*endianCheck == 1) ? 1 : 0;
 }
+

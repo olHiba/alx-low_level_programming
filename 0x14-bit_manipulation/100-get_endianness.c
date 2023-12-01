@@ -7,6 +7,6 @@ int get_endianness(void)
 
     /* If the first byte (lowest address) contains the least significant byte, it's little endian.
      * Otherwise, it's big endian. */
-    return (*endianCheck == 1) ? 1 : 0;
+    return (endianCheck[0] == 1) ? 1 : 0;
 }
 
